@@ -4,4 +4,8 @@
 Mods I have created for ChilloutVR. 
 I'll add more eventually  
 I have absolutely no idea what I'm doing, please be kind.  
+  
+## Beautify particles:  
+Beautify particles is a mod that sets all particles to face the camera, as well as locking their roll axis. This makes the particles much more realistic in VR.  
+  
 Contact: Val®#4773 at discord.
