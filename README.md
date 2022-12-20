@@ -3,4 +3,5 @@
 ## The mod authors and modification are in no affiliation with ABI and not supported by ABI.
 Mods I have created for ChilloutVR. 
 I'll add more eventually  
+I have absolutely no idea what I'm doing, please be kind.
 Contact: Val®#4773 at discord.
