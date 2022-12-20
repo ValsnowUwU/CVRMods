@@ -10,7 +10,6 @@ namespace BeautifyParticles
 {
     public class Main : MelonMod
     {
-        public static MelonPreferences_Entry<bool> AutomaticBeautify; // whether particles should be automatically beautified.
         public override void OnApplicationStart() //Sets up UI Expansion Kit
         {
             var category = MelonPreferences.CreateCategory("VRParticles", "Beautify Particles");
@@ -24,22 +23,26 @@ namespace BeautifyParticles
         }
         public override void OnSceneWasLoaded(int buildIndex, string sceneName)
         {
-            base.OnSceneWasLoaded(buildIndex, sceneName);
-            if (AutomaticBeautify.Value) // Checks whether particles should be automatically beautified.
-            {
-                SetParticles();
-            }
+            SetParticles();
         }
         public void SetParticles() // Beautifies particles.
         {
             LoggerInstance.Msg("Making particles Pretty!");
             var ParticleRenderers = Resources.FindObjectsOfTypeAll<ParticleSystemRenderer>();
-            for (int i = 0; i < ParticleRenderers.Length; i++)
+            if (ParticleRenderers.Length > 0)
             {
-                ParticleRenderers[i].alignment = ParticleSystemRenderSpace.Facing;
-                ParticleRenderers[i].allowRoll = false;
+                for (int i = 0; i < ParticleRenderers.Length; i++)
+                {
+                    ParticleRenderers[i].alignment = ParticleSystemRenderSpace.Facing;
+                    ParticleRenderers[i].allowRoll = false;
+                }
+                LoggerInstance.Msg("**** Made " + ParticleRenderers.Length + " particles pretty ****");
             }
-            LoggerInstance.Msg("**** Made " + ParticleRenderers.Length + " particles pretty ****");
+            else
+            {
+                LoggerInstance.Msg("**** No particles found to beautify ****");
+            }
+            
         }
     }
 }
