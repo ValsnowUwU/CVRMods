@@ -3,7 +3,7 @@ using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
 // ...
-[assembly: MelonInfo(typeof(BeautifyParticles.Main), "Beatify Particles", "1.0.0", "Valerie Snow : Val®#4773")]
+[assembly: MelonInfo(typeof(BeautifyParticles.Main), "BeautifyParticles", "1.0.0", "Valerie Snow")]
 [assembly: MelonOptionalDependencies("UIExpansionKit")]
 [assembly: MelonColor(ConsoleColor.DarkMagenta)]
 [assembly: MelonAuthorColor(ConsoleColor.Magenta)]
