@@ -8,4 +8,4 @@ I have absolutely no idea what I'm doing, please be kind.
 ## Beautify particles:  
 Beautify particles is a mod that sets all particles to face the camera, as well as locking their roll axis. This makes particles much more realistic in VR.  
   
-Contact: Val®#4773 at discord.
+Contact: val.snow at discord.
