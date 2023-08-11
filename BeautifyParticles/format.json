@@ -1,0 +1,26 @@
+rc.publish {
+  "_id": -1,
+  "name": "BeautifyParticles",
+  "modversion": "1.0.0",
+  "gameversion": "10165732",
+  "loaderversion": "0.5.7",
+  "modtype": "Mod",
+  "author": "Val Snow",
+  "description": "Makes particles much more realistic in VR. Beautify particles sets all particles to facing, and locks their roll. This greatly increases immersion in VR.",
+  "searchtags": [
+    "Particles",
+    "Facing",
+    "Roll",
+    "VR",
+    "Beauty",
+    "Aesthetics",
+    "Visual"
+  ],
+  "requirements": [
+    "[UIExpansionkit](https://api.cvrmg.com/v1/mods/files/90/1/UIExpansionKit.dll)"
+  ],
+  "downloadlink": "https://raw.githubusercontent.com/ValsnowUwU/CVRMods/main/BeautifyParticles/BeautifyParticles.dll",
+  "sourcelink": "https://github.com/ValsnowUwU/CVRMods/tree/main/BeautifyParticles",
+  "changelog": "First upload",
+  "embedcolor": "630041"
+}

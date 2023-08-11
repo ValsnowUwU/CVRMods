@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{06D60A63-A4DA-4666-B8CA-DD840CED4EF3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BeautifyParticles</RootNamespace>
+    <AssemblyName>BeautifyParticles</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BTKUILib">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ChilloutVR\Mods\BTKUILib.dll</HintPath>
+    </Reference>
+    <Reference Include="MelonLoader">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ChilloutVR\MelonLoader\MelonLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIExpansionKit">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ChilloutVR\Mods\UIExpansionKit.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ChilloutVR\ChilloutVR_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ChilloutVR\ChilloutVR_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\ChilloutVR\ChilloutVR_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BeautifyParticles.dll" />
+    <Content Include="bin\Debug\0Harmony.dll" />
+    <Content Include="bin\Debug\AssetRipper.VersionUtilities.dll" />
+    <Content Include="bin\Debug\AssetsTools.NET.dll" />
+    <Content Include="bin\Debug\BeautifyParticles.dll" />
+    <Content Include="bin\Debug\BeautifyParticles.pdb" />
+    <Content Include="bin\Debug\bHapticsLib.dll" />
+    <Content Include="bin\Debug\MelonLoader.dll" />
+    <Content Include="bin\Debug\MelonLoader.xml" />
+    <Content Include="bin\Debug\Mono.Cecil.dll" />
+    <Content Include="bin\Debug\Mono.Cecil.Mdb.dll" />
+    <Content Include="bin\Debug\Mono.Cecil.Pdb.dll" />
+    <Content Include="bin\Debug\Mono.Cecil.Rocks.dll" />
+    <Content Include="bin\Debug\MonoMod.RuntimeDetour.dll" />
+    <Content Include="bin\Debug\MonoMod.Utils.dll" />
+    <Content Include="bin\Debug\Tomlet.dll" />
+    <Content Include="bin\Debug\UIExpansionKit.dll" />
+    <Content Include="bin\Debug\UnityEngine.AccessibilityModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.AIModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.AndroidJNIModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.AnimationModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.ARModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.AssetBundleModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.AudioModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.ClothModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.ClusterInputModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.ClusterRendererModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.CoreModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.CrashReportingModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.DirectorModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.dll" />
+    <Content Include="bin\Debug\UnityEngine.DSPGraphModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.GameCenterModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.GridModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.ImageConversionModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.IMGUIModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.InputLegacyModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.InputModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.JSONSerializeModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.LocalizationModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.ParticleSystemModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.PerformanceReportingModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.Physics2DModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.PhysicsModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.ScreenCaptureModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.SharedInternalsModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.SpriteMaskModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.SpriteShapeModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.StreamingModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.SubsystemsModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.TerrainModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.TerrainPhysicsModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.TextCoreModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.TextRenderingModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.TilemapModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.UIElementsModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.UIModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.UNETModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.UnityAnalyticsModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.UnityConnectModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.UnityWebRequestAssetBundleModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.UnityWebRequestAudioModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.UnityWebRequestModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.UnityWebRequestTextureModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.UnityWebRequestWWWModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.VehiclesModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.VFXModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.VideoModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.VRModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.WindModule.dll" />
+    <Content Include="bin\Debug\UnityEngine.XRModule.dll" />
+    <Content Include="bin\Debug\WebSocketDotNet.dll" />
+    <EmbeddedResource Include="Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="format.json" />
+    <None Include="LICENSE" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy "$(TargetDir)BeautifyParticles.dll" "C:\Program Files (x86)\Steam\steamapps\common\ChilloutVR\Mods\" /Y
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

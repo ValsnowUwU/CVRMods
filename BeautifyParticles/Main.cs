@@ -1,48 +1,112 @@
-﻿/*
-    I'm new to modding, so please be kind.
- */
-using MelonLoader;
+﻿using MelonLoader;
+using System;
 using System.Linq;
-using UIExpansionKit.API;
 using UnityEngine;
+using BTKUILib.UIObjects;
+using BTKUILib;
+using System.Reflection;
 
 namespace BeautifyParticles
 {
     public class Main : MelonMod
     {
-        public override void OnApplicationStart() //Sets up UI Expansion Kit
-        {
-            var category = MelonPreferences.CreateCategory("VRParticles", "Beautify Particles");
+        //  Root page of mod
+        private Page page;
 
-            if (MelonHandler.Mods.Any(it => it.Info.Name == "UI Expansion Kit"))
+        private MelonPreferences_Category preferencesCategory;
+        private MelonPreferences_Entry<bool> autoBeautify;
+        private MelonPreferences_Entry<bool> setFacing;
+        private MelonPreferences_Entry<bool> setRoll;
+        private MelonPreferences_Entry<bool> onlyView;
+
+        public override void OnInitializeMelon() //Sets up UI Expansion Kit
+        {
+            //  Create preferences category
+            preferencesCategory = MelonPreferences.CreateCategory("VRParticles", "Beautify Particles");
+
+            //  Create entries
+            autoBeautify = preferencesCategory.CreateEntry<bool>("autoBeautify", true);
+            setFacing = preferencesCategory.CreateEntry<bool>("setFacing", true);
+            setRoll = preferencesCategory.CreateEntry<bool>("setRoll", true);
+            onlyView = preferencesCategory.CreateEntry<bool>("onlyView", true);
+
+
+            //  Check if BTKUILib is installed
+            if (RegisteredMelons.Any(it => it.Info.Name == "BTKUILib"))
             {
-                MelonLogger.Msg("Adding UIExpansionKit buttons");
-                var ui = ExpansionKitApi.GetSettingsCategory("VRParticles");
-                ui.AddSimpleButton("Fix Particles", SetParticles); // Manually beautify particles.
+                LoggerInstance.Msg("Found BTKUILib");
+
+                QuickMenuAPI.PrepareIcon("BeautifyParticles", "BeautifyParticlesIcon", Assembly.GetExecutingAssembly().GetManifestResourceStream("BeautifyParticles.Icon.png"));
+                //  Initialise UI
+                page = new Page("BeautifyParticles", "Beautify Particles", true, "BeautifyParticlesIcon");
+                page.MenuTitle = "Beautify Particles";
+                page.MenuSubtitle = "Improve the look of particles";
+
+                //  Basic settings
+                var basicSettings = page.AddCategory("Basic Settings");
+
+                var manualSet = basicSettings.AddButton("Beautify Particles!", "BeautifyParticlesIcon", "Make them pretty");
+                manualSet.OnPress = SetParticles;
+                
+                var autoBeautifyToggle = basicSettings.AddToggle("Auto-Beautify Worlds", "Automatically beautify worlds on join", autoBeautify.Value);
+                autoBeautifyToggle.OnValueUpdated += b =>
+                {
+                    autoBeautify.Value = b;
+                };
+
+                //  Advanced settings
+                var advancedSettings = page.AddCategory("Advanced Settings");
+
+                var setFacingToggle = advancedSettings.AddToggle("Set to face camera", "Default: true", setFacing.Value);
+                setFacingToggle.OnValueUpdated += b =>
+                {
+                    setFacing.Value = b;
+                };
+
+                var setRollToggle = advancedSettings.AddToggle("Disallow roll", "Default: true", setRoll.Value);
+                setRollToggle.OnValueUpdated += b =>
+                {
+                    setRoll.Value = b;
+                };
+
+                var onlyViewToggle = advancedSettings.AddToggle("Only when set to view", "Default: true", onlyView.Value);
+                onlyViewToggle.OnValueUpdated += b =>
+                {
+                    onlyView.Value = b;
+                };
             }
         }
+
         public override void OnSceneWasLoaded(int buildIndex, string sceneName)
         {
-            SetParticles();
+            if (autoBeautify.Value) SetParticles();
         }
+
         public void SetParticles() // Beautifies particles.
         {
-            LoggerInstance.Msg("Making particles Pretty!");
-            var ParticleRenderers = Resources.FindObjectsOfTypeAll<ParticleSystemRenderer>();
-            if (ParticleRenderers.Length > 0)
+            var particleRenderers = Resources.FindObjectsOfTypeAll<ParticleSystemRenderer>();
+
+            foreach (var r in particleRenderers)
             {
-                for (int i = 0; i < ParticleRenderers.Length; i++)
+                //  If only updating particles set to view, and check if the particle is view
+                if (onlyView.Value && r.alignment == ParticleSystemRenderSpace.View)
                 {
-                    ParticleRenderers[i].alignment = ParticleSystemRenderSpace.Facing;
-                    ParticleRenderers[i].allowRoll = false;
+                    //  Facing if true, otherwise keep value
+                    r.alignment = setFacing.Value ? ParticleSystemRenderSpace.Facing : r.alignment;
+
+                    //  Don't allow roll if true, otherwise keep value
+                    r.allowRoll = setRoll.Value ? false : r.allowRoll;
+
+                    continue;
                 }
-                LoggerInstance.Msg("**** Made " + ParticleRenderers.Length + " particles pretty ****");
+
+                 //  Facing if true, otherwise keep value
+                 r.alignment = setFacing.Value ? ParticleSystemRenderSpace.Facing : r.alignment;
+                
+                 //  Don't allow roll if true, otherwise keep value
+                 r.allowRoll = setRoll.Value ? false : r.allowRoll;
             }
-            else
-            {
-                LoggerInstance.Msg("**** No particles found to beautify ****");
-            }
-            
+            LoggerInstance.Msg("**** Made " + particleRenderers.Length + " particles pretty ****");
         }
     }
 }
